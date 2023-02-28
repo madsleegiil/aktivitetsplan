@@ -7,6 +7,7 @@ import NAVSPA from '@navikt/navspa';
 import moment from 'moment';
 import React from 'react';
 import * as ReactDOM from 'react-dom';
+import { stopReportingRuntimeErrors } from 'react-error-overlay';
 import ReactModal from 'react-modal';
 
 import App from './app';
@@ -28,6 +29,23 @@ moment.updateLocale('nb', {
 
 const usingHashRouting = process.env.REACT_APP_USE_HASH_ROUTER === 'true';
 
+const initMSW = async () => {
+    const { worker } = require('./mocks/browser');
+    await worker.start({
+        onUnhandledRequest: (req, print) => {
+            const unhandled = ['/favicon.ico', '/manifest.json', '/src'].some((route) =>
+                req.url.pathname.includes(route)
+            );
+
+            if (unhandled) {
+                return;
+            }
+
+            print.warning();
+        },
+    });
+};
+
 export const mockfnr = '12345678910';
 if (process.env.REACT_APP_MOCK === 'true') {
     const fnr = mockfnr;
@@ -41,10 +59,11 @@ if (process.env.REACT_APP_MOCK === 'true') {
         window.appconfig = veilederConfig;
     }
 
-    console.log('=========================='); // eslint-disable-line no-console
-    console.log('======== MED MOCK ========'); // eslint-disable-line no-console
-    console.log('=========================='); // eslint-disable-line no-console
-    require('./mocks'); // eslint-disable-line global-require
+    stopReportingRuntimeErrors();
+
+    initMSW().catch((err) => {
+        console.log(err);
+    });
 
     ReactDOM.render(<DemoBanner />, document.getElementById('demo'));
 }

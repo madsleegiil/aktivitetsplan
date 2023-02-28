@@ -164,7 +164,7 @@ class DemoDashboard extends React.Component {
                     onChange={this.endreTilstand}
                 />
                 <CheckboksPanelGruppe
-                    legend="Feature togles"
+                    legend="Feature toggles"
                     checkboxes={ALL_FEATURES.map((name) => {
                         return {
                             label: name,

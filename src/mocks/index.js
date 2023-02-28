@@ -17,8 +17,22 @@ import {
     opprettAktivitet,
     publiserReferat,
 } from './aktivitet';
-import { arena, oppdaterArenaaktivitet, oppdaterLestFhoArenaaktivitet } from './arena';
-import { auth } from './auth';
+import { arena, oppdaterArenaaktivitet, oppdaterLestFhoArenaaktivitet } from './data/arena';
+import { auth } from './data/auth';
+import dialog, { opprettDialog, setFerdigBehandlet, setVenterPaSvar } from './data/dialog';
+import { eskaleringsvarsel } from './data/eskaleringsvarsel';
+import getFeatures from './data/features';
+import { innstillingsHistorikk } from './data/innstillings-historikk';
+import { lest } from './data/lest';
+import { malListe, opprettMal, sisteMal } from './data/mal';
+import { hentMalverkMedType } from './data/malverk';
+import { me } from './data/me';
+import { oppfoelgingsstatus } from './data/oppfoelgingsstatus';
+import getOppfolging, { avslutningStatus, settDigital } from './data/oppfolging';
+import getPerson, { getPostadresse } from './data/person';
+import getNivaa4 from './data/tilgang';
+import { veilederMe } from './data/Veileder';
+import { veilederTilgang } from './data/veilederTilgang';
 import {
     aktivitetFeilet,
     arenaFeilet,
@@ -28,22 +42,8 @@ import {
     oppdateringKunFeiler,
     oppfFeilet,
 } from './demo/sessionstorage';
-import dialog, { opprettDialog, setFerdigBehandlet, setVenterPaSvar } from './dialog';
-import { eskaleringsvarsel } from './eskaleringsvarsel';
 import { failOrGetResponse } from './failOrGetResponse';
-import getFeatures from './features';
-import { innstillingsHistorikk } from './innstillings-historikk';
-import { lest } from './lest';
-import { malListe, opprettMal, sisteMal } from './mal';
-import { hentMalverkMedType } from './malverk';
-import { me } from './me';
-import { oppfoelgingsstatus } from './oppfoelgingsstatus';
-import getOppfolging, { avslutningStatus, settDigital } from './oppfolging';
-import getPerson, { getPostadresse } from './person';
-import getNivaa4 from './tilgang';
 import { fetchmockMiddleware, jsonResponse } from './utils';
-import { veilederMe } from './Veileder';
-import { veilederTilgang } from './veilederTilgang';
 
 const mock = fetchMock.configure({
     enableFallback: false,
