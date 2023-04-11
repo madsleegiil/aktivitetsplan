@@ -1,0 +1,49 @@
+{
+  "index.css": {
+    "file": "assets/index-7c634a12.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "assets/logo-8f085720.png"
+    ],
+    "css": [
+      "assets/index-7c634a12.css"
+    ],
+    "dynamicImports": [
+      "src/webcomponentWrapper.tsx",
+      "src/mocks/index.ts"
+    ],
+    "file": "assets/index-7f2fa862.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "src/hovedside/tavle/obs.svg": {
+    "file": "assets/obs-7e4d4686.svg",
+    "src": "src/hovedside/tavle/obs.svg"
+  },
+  "src/mocks/index.ts": {
+    "file": "assets/index-23114bf8.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/mocks/index.ts"
+  },
+  "src/moduler/mal-linje/Aktivitetsplan_maal.svg": {
+    "file": "assets/Aktivitetsplan_maal-117bd5a1.svg",
+    "src": "src/moduler/mal-linje/Aktivitetsplan_maal.svg"
+  },
+  "src/moduler/utskrift/ikoner/logo.png": {
+    "file": "assets/logo-8f085720.png",
+    "src": "src/moduler/utskrift/ikoner/logo.png"
+  },
+  "src/webcomponentWrapper.tsx": {
+    "file": "assets/webcomponentWrapper-58f5969f.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/webcomponentWrapper.tsx"
+  }
+}
